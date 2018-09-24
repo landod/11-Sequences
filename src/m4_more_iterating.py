@@ -33,7 +33,7 @@ def run_test_sum_sequence():
     print('--------------------------------------------------')
 
     # ------------------------------------------------------------------
-    # TODO: 2. READ the COMMENTS and CODE in this function,
+    # DONE: 2. READ the COMMENTS and CODE in this function,
     #  asking questions as needed.
     #
     #   When you believe that you understand:
@@ -203,7 +203,7 @@ def sum_sequence(sequence):
       :type sequence: list or tuple (of integers)
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # RESTRICTION:
@@ -212,12 +212,17 @@ def sum_sequence(sequence):
     #      -- The TESTING code above does use   built_ins.sum
     #         as an ORACLE in TESTING this function, however.
     # ------------------------------------------------------------------
+    total = 0
+    for k in range(len(sequence)):
+        total = total + sequence[k]
+
+    return total
 
 
 def run_test_count_items_bigger_than():
     """ Tests the   count_items_bigger_than   function. """
     # ------------------------------------------------------------------
-    # TODO: 4. Implement this TEST function.
+    # DONE: 4. Implement this TEST function.
     #   It TESTS the  count_items_bigger_than  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests.
     #
@@ -343,6 +348,22 @@ def run_test_count_items_bigger_than():
 
     # TO DO 4 (continued):  Add your 2 ADDITIONAL tests here:
 
+    sequence = [144, 984, 134, 890856, 234, 987, 987, 354, -1234, -485, 85534, 145]
+    threshold = 198
+    expected = 7
+    actual = count_items_bigger_than(sequence, threshold)
+    print()
+    print('Test 4 expected:', expected)
+    print('       actual:  ', actual)
+
+    sequence = [45, 84, 32, 70, -10, 40, 60, 145, 165, 449184, 6, 882, 125, 908, 13345, 66, 285]
+    threshold = 214
+    expected = 5
+    actual = count_items_bigger_than(sequence, threshold)
+    print()
+    print('Test 4 expected:', expected)
+    print('       actual:  ', actual)
+
 
 def count_items_bigger_than(numbers, threshold):
     """
@@ -378,10 +399,15 @@ def count_items_bigger_than(numbers, threshold):
       :type threshold: float
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DONE: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
+    count = 0
+    for k in range(len(numbers)):
+        if numbers[k] > threshold:
+            count = count + 1
 
+    return count
 
 def run_test_count_positive_sines():
     """ Tests the   count_positive_sines   function. """
@@ -508,15 +534,20 @@ def count_positive_sines(numbers):
       :type sequence: list or tuple (of numbers)
     """
     # ------------------------------------------------------------------
-    # TODO: 7. Implement and test this function.
+    # DONE: 7. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
+    count = 0
+    for k in range(len(numbers)):
+        if math.sin(numbers[k]) > 0:
+            count = count + 1
+    return count
 
 
 def run_test_sum_first_n():
     """ Tests the   sum_first_n   function. """
     # ------------------------------------------------------------------
-    # TODO: 8. Implement this TEST function.
+    # DONE: 8. Implement this TEST function.
     #   It TESTS the  sum_first_n  function defined below.
     #   Include at least ** 2 ** ADDITIONAL tests.
     #
@@ -587,6 +618,18 @@ def run_test_sum_first_n():
 
     # TO DO 8 (continued):  Add your 2 ADDITIONAL tests here:
 
+    expected = 138
+    actual = sum_first_n([48, -10, 100, 9939309808, 433443080, -45634930], 3)
+    print()
+    print('Test 8 expected:', expected)
+    print('       actual:  ', actual)
+
+    expected = -52
+    actual = sum_first_n([48, -100, 1000, 9939309808, 433443080, -45634930], 2)
+    print()
+    print('Test 9 expected:', expected)
+    print('       actual:  ', actual)
+
 
 def sum_first_n(numbers, n):
     """
@@ -610,7 +653,7 @@ def sum_first_n(numbers, n):
       :type n: int
     """
     # ------------------------------------------------------------------
-    # TODO: 9. Implement and test this function.
+    # DONE: 9. Implement and test this function.
     #          Tests have been written for you (above).
     #
     # RESTRICTION:
@@ -619,6 +662,13 @@ def sum_first_n(numbers, n):
     #      -- The TESTING code above does use   built_ins.sum
     #         as an ORACLE in TESTING this function, however.
     # ------------------------------------------------------------------
+
+    total = 0
+    for k in range(len(numbers)):
+        if k < n:
+            total = total + numbers[k]
+
+    return total
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
